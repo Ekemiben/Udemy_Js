@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Try and Catch</title>
+</head>
+<body>
+    <div>
+        <input type="text" name="" id="txt" placeholder="Enter value here ..">
+        <button id="btn">Confirm</button>
+        <p id="displayError"></p>
+    </div>
+    <script>
+        let btn = document.getElementById('btn');
+        
+        // txt.innerHTML=''
+        let displayError = document.getElementById('displayError');
+       
+        btn.addEventListener('click', function(){
+            let txt = document.getElementById('txt').value;
+            try{
+                if(txt == '')throw 'Text can\'t be empty'
+                if(isNaN(txt))throw 'Value must be number'
+                txt = Number(txt);
+                if (txt < 5)throw 'Is too low'
+                if (txt > 20) throw 'Is too high'
+                console.log(txt)
+            }
+            catch(e){
+                displayError.innerHTML = 'Input ' + e
+            }
+            finally{
+               document.getElementById('txt').value ="brain"
+            }
+
+        })
+    </script>
+</body>
+</html>

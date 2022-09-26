@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <form action="POST">
+       <div>
+            <label for="txt">Surname</label>
+            <input type="text" name="text" id="txt" placeholder="Enter surname here ...">
+       </div>
+       <div>
+            <label for="firsttxt">Firstname</label>
+            <input type="text" name="text" id="firsttxt" placeholder="Enter firstname here ...">
+       </div>
+       <div>
+            <label for="midtxt">Middlename</label>
+            <input type="text" name="text" id="midtxt" placeholder="Enter middlename here ...">
+       </div>
+       <div>
+            <label for="phone">Phone Number</label>
+            <input type="tel" name="phone" id="phone" placeholder="Enter phone number here ...">
+       </div>
+      
+   </form>
+
+
+
+   <form name="selectForm">
+    <p>
+      <label for="musicTypes">Choose some music types, then click the button below:</label>
+      <select id="musicTypes" name="musicTypes" multiple="multiple">
+        <option selected="selected">R&B</option>
+        <option>Jazz</option>
+        <option>Blues</option>
+        <option>New Age</option>
+        <option>Classical</option>
+        <option>Opera</option>
+      </select>
+    </p>
+    <p><input id="btn" type="button" value="How many are selected?" /></p>
+  </form>
+  
+  <script>
+  function howMany(selectObject) {
+    let numberSelected = 0;
+    for (let i = 0; i < selectObject.options.length; i++) {
+      if (selectObject.options[i].selected) {
+        numberSelected++;
+      }
+    }
+    return numberSelected;
+  }
+  
+  let btn = document.getElementById('btn');
+  btn.addEventListener('click', function() {
+    alert('Number of options selected: ' + howMany(document.selectForm.musicTypes));
+  });
+  </script>
+  
+</body>
+</html>
